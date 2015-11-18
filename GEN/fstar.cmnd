@@ -1,0 +1,48 @@
+! File: main32.cmnd
+! This file contains commands to be read in for a Pythia8 run. 
+! Lines not beginning with a letter or digit are comments.
+! Names are case-insensitive  -  but spellings-sensitive!
+! The changes here are illustrative, not always physics-motivated.
+
+! 1) Settings that will be used in a main program.
+Main:numberOfEvents = 10000         ! number of events to generate
+#Main:timesToShow = 10              ! show how far along run is this many times
+#Main:timesAllowErrors = 3         ! abort run after this many flawed events
+Init:showChangedSettings = on      ! print changed flags/modes/parameters
+Init:showAllSettings = on          ! print all flags/modes/parameters
+Init:showChangedParticleData = on  ! print changed particle and decay data
+Init:showAllParticleData = on      ! print all particle and decay data
+
+Next:numberShowEvent = 0
+Next:numberShowProcess = 10
+Next:numberShowEvent = 0
+
+#Main:numberToList = 10
+#Next:numberShowProcess = 10
+
+#PartonLevel:ISR = off
+#PartonLevel:FSR = off
+#HadronLevel:all  = off
+#HadronLevel:Hadronize = off
+
+! 2) Beam parameter settings. Values below agree with default ones.
+Beams:idA = 2212                   ! first beam, p = 2212, pbar = -2212
+Beams:idB = 2212                   ! second beam, p = 2212, pbar = -2212
+Beams:eCM = 8000.                 ! CM energy of collision
+
+! 3) Pick processes and kinematics cuts.
+#ExcitedFermion:qqbar2eStare = on
+#4000011:onMode =  off
+#4000011:onIfMatch = 11 22    #   e gamma
+#4000011:m0 = 1500.
+#
+ExcitedFermion:qqbar2muStarmu = on
+4000013:onMode =  off
+4000013:onIfMatch = 13 1 -1    #   mu d dbar
+4000013:onIfMatch = 13 2 -2    #   mu d dbar
+4000013:onIfMatch = 13 3 -3    #   mu d dbar
+4000013:onIfMatch = 13 4 -4    #   mu d dbar
+4000013:onIfMatch = 13 5 -5    #   mu d dbar
+4000013:m0 = 2000.
+
+ExcitedFermion:Lambda = 10000.

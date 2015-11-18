@@ -1,0 +1,29 @@
+! File: main32.cmnd
+! This file contains commands to be read in for a Pythia8 run. 
+! Lines not beginning with a letter or digit are comments.
+! Names are case-insensitive  -  but spellings-sensitive!
+! The changes here are illustrative, not always physics-motivated.
+
+! 1) Settings that will be used in a main program.
+Main:numberOfEvents = 10          ! number of events to generate
+Init:showChangedSettings = on      ! print changed flags/modes/parameters
+Init:showAllSettings = on          ! print all flags/modes/parameters
+Init:showChangedParticleData = on  ! print changed particle and decay data
+Init:showAllParticleData = on      ! print all particle and decay data
+
+Next:numberShowEvent = 0
+Next:numberShowProcess = 10
+Next:numberShowEvent = 0
+
+
+! 2) Beam parameter settings. Values below agree with default ones.
+Beams:idA = 2212                   ! first beam, p = 2212, pbar = -2212
+Beams:idB = 2212                   ! second beam, p = 2212, pbar = -2212
+Beams:eCM = 8000.                 ! CM energy of collision
+
+! 3) Pick processes and kinematics cuts.
+ExcitedFermion:qqbar2muStarmu = on
+4000013:onMode =  off
+4000013:onIfMatch = 13 23 
+4000013:m0 = 2000
+ExcitedFermion:Lambda = 10000.
